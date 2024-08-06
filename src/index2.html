@@ -1,1 +1,190 @@
-Index2
+<!doctype html><html xmlns:mml="http://www.w3.org/1998/Math/MathML"><head><title>FlexMap Curriculum Tools.</title><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script><script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script><script src="https://d3js.org/d3.v5.min.js"></script><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-svg.js"></script><style>*::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #welcomeBox td {
+            padding: 20px
+        }
+
+        .addBorder {
+            border: 3px double #FF0000;
+            padding: 0px;
+        }
+
+        .shadowbox {
+            transition: box-shadow .3s;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            background: #fff;
+            float: left;
+            box-shadow: 0 0 10px rgba(33, 33, 33, .2);
+        }
+        .shadowbox:hover {
+            box-shadow: 0 0 10px rgba(33, 33, 33, .4);
+        }
+        tr.border_bottom td {
+            border-bottom: 0.5pt solid lightgrey;
+        }
+        .navbar-light .navbar-nav .nav-link {
+            color: black;
+        }
+        tr.menu2 td {
+            text-align: center;
+        }
+        a.selectedMenu:after {
+            width: 70%;
+        }
+        .underline {
+            text-decoration: none;
+            position: relative;
+        }
+        .underline:after {
+            position: absolute;
+            content: '';
+            height: 5px;
+            /* adjust this to move up and down. you may have to adjust the line height of the paragraph if you move it down a lot. */
+            bottom: -10px;
+
+            /****** 
+       optional values below 
+       ******/
+            /* center - (optional) use with adjusting width   */
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+            width: 0%;
+            background: #B53142;
+
+            /* optional animation */
+            -o-transition: .2s;
+            -ms-transition: .2s;
+            -moz-transition: .2s;
+            -webkit-transition: .2s;
+            transition: .2s;
+        }
+
+        /* optional hover classes used with anmiation */
+        .underline:hover:after {
+            width: 70%;
+            background: #B53142;
+        }
+
+        .rounddiv {
+            border-radius: 8px;
+            border: 2px solid #d3d3d3;
+            padding: 10px 0px 10px 0px;
+            width: 100%;
+            background: #E5E5E5;
+        }
+        logo-text {
+            padding: 1vw;
+            color: #000000;
+            text-transform: uppercase;
+            font-family: "TechSchool";
+            letter-spacing: 0.0725em;
+            line-height: 1.5em;
+            z-index: 3;
+        }
+
+        .btn-gr,
+        .btn-gr:hover,
+        .btn-gr:active,
+        .btn-gr:visited,
+        .btn-gr:focus {
+
+            background-color: #28A745;
+            border-color: #8064A2;
+        }
+
+        .bt {
+            color: #007BFF;
+            font-weight: bold;
+        }
+        /* 
+        .btn-primary {
+            background-color: #EE497F;
+        }
+        */
+
+        .bt2 {
+            color: #000000;
+            position: relative;
+            top: 0px;
+            left: 10px
+        }
+
+        #maincontent {
+            position: relative;
+            left: 100px;
+        }
+
+        .visible {
+            visibility: visible;
+        }
+
+        .invisible {
+            visibility: hidden;
+        }
+
+        .ifr {
+            width: 500px;
+        }
+
+        #registerModalTxt {
+            font-family: "Roboto";
+            font-size: 24px
+        }
+
+        .navbar-light .navbar-brand {
+            color: black;
+        }
+
+        #id {
+            width: 320px;
+            padding: 100px 20px 50px 50px;
+        }
+
+        #logOutLink {
+            visibility: hidden;
+        }
+
+        #jumbotable td {
+            padding: 15px;
+        }
+
+        td.desctext {
+            font-style: italic;
+            color: white;
+        }
+
+        td.editable,
+        td#ddeditable {
+            color: white;
+        }
+
+        .herobanner {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://storage.googleapis.com/www.flexmap.org/images/logo/map1.png");
+            width: 100%;
+            height: 1000px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+
+        .hero-text {
+            text-align: center;
+            position: relative;
+            top: 25%;
+            left: 0%;
+            transform: translate(0%, -20%);
+            color: white;
+        }</style><base target="_top"><script defer="defer" src="sunburst.js"></script><script defer="defer" src="aptool.js"></script><script defer="defer" src="index.js"></script><script defer="defer" src="tablemaptool.js"></script><script defer="defer" src="table.js"></script></head><body style="background-color:white;padding-top: 0px;" id="mainBody"><table border="0"><tr class="border_bottom"><td><a href="/"><img src="./images/flexmap4.png" width="150" alt="cover image" style="position:relative; left:20px"></a></td><td style="padding:0 50px 0 50px"><span class="navbar-brand" href="#" id="navUserTitle" style="position:relative; width:100px; left:10px; top:0px"></span></td><td style="padding:0 200px 0 300px"></td><td style="padding:0 50px 0 50px">About</td><td style="padding:0 50px 0 50px">Contact</td><td style="padding:0 50px 0 50px"><span id="logOutLink"><a href="javascript:logout()">Log out</a></span></td></tr></table><nav id="navb" class="navbar navbar-expand-lg navbar-light" style="display:block; height: 60px; background-color: #F2F2F2;display:none"><span id="navhtable" class="navbar-brand" style="position:relative; left:-10px"></span> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarSupportedContent"><ul class="navbar-nav mr-auto"><div id="menubuttons" style="display: block"><span style="position:absolute; left:400px; top:2px"><table border="0" width="500px" style="position: relative; top:5px"><tr class="menu2"><td><a id="mainlistme" class="underline nav-link" href="#">List</a></td><td><a id="programModeMe" class="underline nav-link" href="#">Program</a></td><td><a id="auditme" class="underline nav-link" href="#">Mapping</a></td><td><a id="reportme" class="underline nav-link" href="#">Report</a></td><td><a id="tabletoolme" class="underline nav-link" href="#">Template</a></td><td><a id="exploreme" class="underline nav-link" href="#">Explore</a></td></tr></table></span></div></ul></div></nav><div id="all" style="background-color: #F8F8F8"><div id="tabledisp1" style="position:relative;"></div><div id="programListTable" style="position:relative;left:20px;top:20px"></div><div class="herobanner"><div class="hero-text"><h2 style="font-size:45px">Flex Map</h2><h2 style="font-size:40px">Curriculum Mapping Tool<br><h1 style="font-size: 40px">Inspect | Audit | Report</h1><div style="text-align: center; position:relative; top:70px"><button type="button" id="loginbutton" class="btn btn-warning btn-lg">LOG IN</button><p><br>New User? <a href="#" id="registerlink">Register here</a></p></div></h2></div></div></div><div style="width:50%; margin: auto; display:none; position:relative;top:0px; display: none" id="newLoginOptions"><table border="0" width="800px" style="position: relative; top:10px;" id="welcomeBox"><tr><td><div style="font-size: 36px; position:relative;  text-align: center">Welcome</div></td></tr><tr></tr><tr><td><div style="font-size: 24px; position:relative;  text-align: center">What would you like to do?</div></td></tr><tr><td style="padding:20px 60px 20px 60px; text-align:center"><p><button type="button" class="btn btn-primary rounded" id="NewAudits" data-toggle="tooltip" data-placement="right" title=""><div style="font-size: 24px; width:400px">Define a New Program</div></button></p><p></p></td></tr><tr><td style="padding:20px 60px 60px 60px; text-align:center"><p><button type="button" style="border-radius: 2px" class="btn btn-primary rounded" id="ExistingAudits" data-toggle="tooltip" data-placement="right" title=""><div style="font-size: 24px; width:400px">Manage Existing Programs</div></button></p></td></tr></table><p></p></div><div id="preloading" width="400px" style="position:relative; top:-20px; text-align:center; font-size: 24px;border: 5px none red;"></div><div id="confirmedCourseInfo" style="display: none;position:relative; top:20px"><table border="0"><tr><td><div id="confirmedJumboDisplay"></div></td><td style="vertical-align: top"><div id="Instruction1" style="font-size: 20px;position: relative; left: 40px; top:100px; display:none">Describe the Program of Study, and choose a curriculum to map to.</div><div id="Instruction2" style="position: relative; left: 40px;top: 180px; font-size: 20px">Next steps<ul><li>Select Mapping to identify which curriculum outcomes are covered</li><li>Select Report to see the outcomes in a table (or a sunburst)</li></ul><p><br></p></div></td></tr></table></div><div style="width:50%; margin: auto; display:none; position:relative;top:50px;" id="exploreMenuItems"><table width="800px" style="position: relative; top:10px; border:0px" id="welcomeBox" class=""><tr><td><div style="font-size: 36px; position:relative;  text-align: center">Interactive Views</div><p>&nbsp;</p><p>&nbsp;</p></td></tr><tr></tr><tr><td style="padding:20px 60px 20px 60px; text-align:center"><p><button type="button" style="border-radius: 2px" class="btn btn-primary rounded" id="ExploreSun" data-toggle="tooltip" data-placement="right" title=""><div style="font-size: 24px; width:400px">Visualise Entire Curriculum</div></button></p></td></tr><tr><td style="padding:20px 60px 20px 60px; text-align:center"><button type="button" class="btn btn-primary rounded" id="ExploreMoon" data-toggle="tooltip" data-placement="right" title=""><div style="font-size: 24px; width:400px">Visualise Mapped Outcomes</div></button></td></tr></table><p></p></div><div style="width:50%; margin: auto; display:none; position:relative;top:50px;" id="reportMenuItems"><table width="800px" style="position: relative; top:10px; border:0px" id="welcomeBox" class=""><tr><td><div id="reportTopicHeading" style="font-size: 36px; position:relative;  text-align: center">Reporting</div><p>&nbsp;</p></td></tr><tr></tr><tr id="reportMenuButtons"><td style="padding:20px 60px 20px 60px; text-align:center"><p><button type="button" style="border-radius: 2px" class="btn btn-primary rounded" id="StandardReport" data-toggle="tooltip" data-placement="right" title=""><div style="font-size: 24px; width:400px">Standard Report</div></button><br/>See the standards you have mapped to, in table view.</p></td></tr><tr><td style="padding:20px 60px 20px 60px; text-align:center"><button type="button" class="btn btn-primary rounded" id="combineReports" data-toggle="tooltip" data-placement="right" title=""><div style="font-size: 24px; width:400px">Combined Reports</div></button><br/>Combine multiple mappings into one view.</td></tr></table><p></p></div><div id="preloading" width="400px" style="position:relative; top:200px; text-align:center; font-size: 24px;"></div><div id="dyndiv"></div><script>// get and set data</script><div id="modals"><div class="modal" id="pleaseWaitModal" tabindex="-1" role="dialog"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Please Wait</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body"><div style="display: block" id="loginspinner2" style="position:relative;left:-100px"><div class="spinner-border text-success" role="status"><span class="sr-only">Syncing Data</span></div><div style="position: relative; left:50px; top:-30px">Syncing Data</div></div></div><div class="modal-footer"></div></div></div></div><div class="modal" id="confirmResetModal" tabindex="-1" role="dialog"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Confirm</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body"><p>Do you want to reset any curriculum information that has been mapped for this program? (This will reset online reports for this program)</p><p>Course Titles and Description will be preserved.</p></div><div class="modal-footer"><button type="button" class="btn btn-secondary btn-lg" id="resetNo">No</button> <button type="button" class="btn btn-primary btn-lg" id="resetYes">Yes</button></div></div></div></div><div class="modal" id="confirmDeleteModal" tabindex="-1" role="dialog"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Confirm</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body"><p>Do you want to delete this program ? (This will also remove any mapping and online reports for this program)</p><p>Course Titles and Description will also be deleted.</p></div><div class="modal-footer"><button type="button" class="btn btn-secondary btn-lg" id="deleteNo">No</button> <button type="button" class="btn btn-primary btn-lg" id="deleteYes">Yes</button></div></div></div></div><div class="modal" id="loginModal" tabindex="-1" role="dialog" style="top:22px; left:50px"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header" style="background-color: #E0A900;"><h5 class="modal-title">Login</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body"><table border="0" width="500px"><tr><td>Name:</td><td style="padding: 0 0 0 20px;"><input id="ufrm" placeholder="username" style="line-height: 2em" required></td></tr><tr><td>Password:</td><td style="padding: 0 0 0 20px;"><input type="password" placeholder="******" id="pfrm" style="line-height: 2em" required></td></tr></table></div><div class="modal-footer"><div style="display: none" id="loginspinner" style="position:relative;left:-100px"><div class="spinner-border text-success" role="status"><span class="sr-only">Checking login details</span></div></div><button type="button" class="btn btn-secondary btn" id="LoginCancel">Cancel</button> <button type="submit" class="btn btn-success btn" id="LoginGo">Log in</button></div></div></div></div><div class="modal" id="registerModal" tabindex="-1" role="dialog" style="top:22px; left:50px"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header" style="background-color: #E0A900;"><h5 class="modal-title">Welcome</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><form method="post" id="interestForm"><div class="modal-body"><table border="0"><tr><td width="100%" colspan="3" id="registerModalTxt" style="font-size:24">Thankyou for your interest in Flexmap.<p>Please fill in the details below and we will get right back to you.</p><hr></td></tr><tr><td>Name:</td><td style="padding: 0 0 0 20px;"><input id="namefrm" placeholder="Firstname Surname" style="line-height: 2em" required></td></tr><tr><td>School or Other Institution</td><td style="padding: 0 0 0 20px;"><input size="50" id="schoolfrm" placeholder="School or Institution" style="line-height: 2em" required></td></tr><tr><td>Email</td><td style="padding: 0 0 0 20px;"><input type="email" size="50" id="emailfrm" placeholder="email@somewhere.com" style="line-height: 2em" required></td></tr><tr><td>Role (Teacher, Faculty Head, Educational Administrattion etc)</td><td style="padding: 0 0 0 20px;"><input size="50" id="rolefrm" placeholder="I am .. " style="line-height: 2em" required></td></tr></table></div><div class="modal-footer"><button type="button" class="btn btn-secondary btn" id="RegistrationCancel">Cancel</button> <input type="submit" class="btn btn-success btn" id="RegistrationGo" value="Submit"></div></form></div></div></div><div class="modal" id="invalidLogin" tabindex="-1" role="dialog"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Invalid Login Details</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body"><p>The user name and password combination is not valid</p></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></div></div></div></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script><script src="index.js"></script></body></html>
