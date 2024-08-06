@@ -1,0 +1,208 @@
+  <!DOCTYPE html>
+  <html xmlns:mml="http://www.w3.org/1998/Math/MathML">
+
+  <head>
+      <base target="_top">
+      
+ <script>
+     //alert("was")
+(function() { // Scoping function to avoid globals
+    var standalone2=!document.getElementById("mainBody")
+    if(standalone2){
+    var src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js";
+    document.write('<script src="' + src + '"><\/script>');
+  }
+  else {
+    //console.log("!jq load")
+  }
+})();
+</script>
+
+    
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+      <style>
+          input {
+            margin: .4rem;
+          }
+
+          .rangeslider {
+              width: 50%;
+          }
+
+          .slider {
+              -webkit-appearance: none;
+              width: 350px;
+              height: 15px;
+              border-radius: 5px;
+              background: #d3d3d3;
+              outline: none;
+              opacity: 0.7;
+              -webkit-transition: .2s;
+              transition: opacity .2s;
+          }
+
+          .slider::-webkit-slider-thumb {
+              -webkit-appearance: none;
+              appearance: none;
+              width: 25px;
+              height: 25px;
+              border-radius: 50%;
+              background: #0000FF;
+              cursor: pointer;
+          }
+
+          .slider::-moz-range-thumb {
+              width: 25px;
+              height: 25px;
+              border-radius: 50%;
+              background: #0000FF;
+              cursor: pointer;
+          }
+
+
+          .button {
+              background-color: green;
+              border: none;
+              color: white;
+              padding: 2px 2px;
+              margin-top: 5px;
+              text-align: center;
+              font-size: 14px;
+              cursor: pointer;
+          }
+
+          .off {
+              margin-top: 2px;
+              margin-left: 4px;
+          }
+
+          .rounddiv {
+              border-radius: 7px;
+              padding: 10px 10px 10px 10px;
+              width: 800px;
+              background-color: #8296A2;
+              color:#FFFFFF;
+          }
+
+          .button:hover {
+              background-color: #90ee90;
+          }
+
+          .modal {
+              position: absolute;
+              top: 30px;
+              /* right: 100px;
+   */
+              bottom: 0;
+              left: 0;
+              z-index: 10040;
+              overflow: auto;
+              overflow-y: auto;
+          }
+
+          .modal-backdrop {
+              background-color: #CCCCCC;
+          }
+
+          .modal-backdrop.show {
+              opacity: 0.3;
+          }
+      </style>
+
+  </head>
+
+  <body>
+      <div borderdiv  style="border-style: none;">
+      <div id="tv_mainContent"  style="margin: 0 auto; width:1200px; position: relative; top:10px; "></div>
+    </div>
+      <script src="aptool.js">
+        /* $.getScript("./aptool.js",function(){
+                    init()} )
+         */         
+      </script>
+
+      <div class="modal fade" id="completenessModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <div style="display:none" id="a1code">abc</div>
+                      <h4 class="modal-title" id="modaltitle">Modal title</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                      </button>
+
+                  </div>
+                  <div class="modal-body">
+                      <span style="font-size:36px"> Coverage </span>
+                      <table width="500px" border=0>
+                          <tr>
+                              <td width="100px">
+                                  <span id="coverage" style="font-size:36px"></span>
+                              </td>
+                              <td width="400px">
+                                  <div class="rangeslider">
+                                      <input type="range" value="25" step="1" min="0" max="100" class="slider" id="sliderRange">
+                                  </div>
+                          </tr>
+                      </table>
+                      <!-- Nav tabs -->
+                      <ul class="nav nav-tabs" id="myTab" role="tablist">
+                          <li class="nav-item">
+                              <a class="nav-link active" id="std-tab" data-toggle="tab" href="#stddesc" role="tab" aria-controls="std" aria-selected="true">Standard</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#elabdesc" role="tab" aria-controls="profile" aria-selected="false">Elaboration</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" id="copyright-tab" data-toggle="tab" href="#copyrightdesc" role="tab" aria-controls="copyright" aria-selected="false">Copyright</a>
+                          </li>
+                      </ul>
+                      <div class="tab-content" id="myTabContent">
+                          <div class="tab-pane fade show active" id="stddesc" role="tabpanel" aria-labelledby="std-tab">yeah but</div>
+                          <div class="tab-pane fade" id="elabdesc" role="tabpanel" aria-labelledby="profile-tab">nah
+                              <p> content
+                          </div>
+                          <div class="tab-pane fade" id="copyrightdesc" role="tabpanel" aria-labelledby="copyright-tab">
+                            <p> test </p>
+                          </div>
+                          
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
+                      <button type="button" id="savebtn"  data-toggle="tooltip" data-placement="top" title="Save" class="btn btn-primary save">Save changes</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <script>
+          var rangeslider = document.getElementById("sliderRange");
+          var updateCoverageID = document.getElementById("coverage");
+          updateCoverageID.innerHTML = rangeslider.value + "%";
+
+          rangeslider.oninput = function() {
+              var updateCoverageID = document.getElementById("coverage");
+              updateCoverageID.innerHTML = this.value + "%";
+          }
+      </script>
+
+
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+      <!-- Modal -->
+      <script>
+          $(document).ready(function() {
+              $('[data-toggle="tooltip"]').tooltip();
+
+          });
+      </script>
+
+  </body>
+
+  </html>

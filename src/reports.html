@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <base target="_top">
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+
+        th,
+        td {
+            padding: 15px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        var _infoSheet = "<?!=_infoSheet?>"
+        var auditIndex = "<?!=auditIndex?>"
+
+        let loadTable = (tdata) => {
+            document.getElementById("table").innerHTML = tdata
+        }
+
+
+        // query string: ?foo=lorem&bar=&baz
+        var a1code = getParameterByName('a1code'); // "lorem"
+        var auditIndex = getParameterByName('auditIndex'); // "" (present with empty value)
+        var _infoSheet = getParameterByName('_infoSheet'); // "" (present with no value)
+        var rootText = getParameterByName('rootText'); // null (absent)
+        var _auditPage = getParameterByName('_auditPage'); // null (absent)
+
+        // google.script.run.withSuccessHandler(start).deserialize(_infoSheet);
+        $(getData)
+        var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx_B19ltmD3Re4-CTIpCLR7-aRJRREvAhVxC8hMcn4gwQ6uoI-r/exec";
+
+
+        let _infoSheet = e.parameter._infoSheet
+        let rootText = e.parameter.rootText
+        let auditIndex = e.parameter.auditIndex
+
+        function getData() {
+            //document.getElementById("output").innerHTML = "getting..."
+            $.getJSON(SCRIPT_URL + "?callback=?", {
+                    method: "tablereport",
+                    _infoSheet: _infoSheet,
+                    rootText: "roottext",
+                    "auditIndex",
+                    val: -1
+                },
+                function(data) {
+                    loadTable(data)
+                }
+            );
+        }
+
+
+        google.script.run.withSuccessHandler(loadTable).datah2(_infoSheet, "roottext", -1)
+    </script>
+</head>
+
+<body>
+    <div id="table"></div>
+</body>
+
+</html>

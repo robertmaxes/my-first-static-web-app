@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <base target="_top">
+
+<script>
+ 
+(function() { // Scoping function to avoid globals
+    var standalone=!document.getElementById("mainBody")
+    if(standalone){
+    var src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js";
+    document.write('<script src="' + src + '"><\/script>');
+  }
+  else {
+    //console.log("no jq load needed")
+  }
+})();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="pup.js"></script> 
+
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script-->
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  
+   <!--  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    -->
+    <script src="https://kit.fontawesome.com/687b7d3c14.js" crossorigin="anonymous"></script>
+    <style>
+        #maintable table, #maintable th, #maintable td {
+        border: 1px solid black;
+      }
+          
+  #maintable td {
+    padding: 15px;
+    text-align: center;
+    max-width:200px;
+  }
+
+   #maintable th, #maintable td:last-child {
+    padding: 15px;
+    text-align: center;
+    max-width:350px;
+  }
+
+  #outputdiv { position:relative;  }
+   #heading { font-size: 18px ; position: relative; left:15px; text-decoration: bold;max-width: 800px}
+    #headingSummary { font-size: 18px ; text-align: left;resize:vertical;max-width: 800px }
+    #heading_detail1 { font-size: 14px ; text-align: left;resize: vertical;
+  overflow: auto; border-style: none; max-width: 800px}
+  #heading_detail2  { font-size: 14px ; text-align: left;resize: vertical;
+  overflow: auto; border-style: none; max-width: 800px}
+
+   #maintable { position:relative;top:20px; padding-left: 20px}
+    .miniIcon {display: none; color:red}
+
+/* Tooltip container */
+.tooltip2 {
+  position: relative;
+  color:#007BFF;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip2 .tooltiptext2 {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  /*bottom: 0px; */
+  left: 120%;
+  margin-left: 10px;
+  width:350px;
+   top: -15px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip2 .tooltiptext2::after {
+  content: "";
+  position: absolute;
+  top: -15%;
+  right: 100%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip2:hover .tooltiptext2 {
+  visibility: visible;
+  opacity: 1;
+}
+
+#imgBanner  {
+  max-width: inherit;
+  max-height: inherit;
+  height: inherit;
+  width: inherit;
+  object-fit: scale-down;
+}
+
+#popup {
+  z-index: 1000;
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+  text-align: center;
+  min-height: 40px;
+  min-width: 40px;
+  max-height: 300px;
+
+  /*max-width: 600px;*/
+}
+
+.popup {
+  position: absolute;
+  /*resize: both; !*enable this to css resize*! */
+  overflow: auto;
+}
+
+.popup-header {
+  padding: 1px;
+  cursor: move;
+  z-index: 10;
+  background-color: #fff;
+  color: #000;
+  opacity: 1.0;
+  font-size:4px;
+}
+
+/*Resizeable #2196f3;  */
+
+.popup .resizer-right {
+  width: 5px;
+  height: 100%;
+  background: transparent;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  cursor: e-resize;
+}
+
+.popup .resizer-bottom {
+  width: 100%;
+  height: 5px;
+  background: transparent;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  cursor: n-resize;
+}
+
+.popup .resizer-both {
+  width: 5px;
+  height: 5px;
+  background: transparent;
+  z-index: 10;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  cursor: nw-resize;
+}
+
+/*NOSELECT*/
+
+.popup * {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+    </style>
+
+
+
+
+    <script src="./table.js"> </script>
+
+    <script>
+      
+      
+
+/*
+$(document).ready(function() {
+              //$.getScript("./const.js")
+                  $.getScript("./table.js",function(){getData()})
+        })
+*/
+   </script> 
+</head>
+
+<body style="display:flex;">
+
+ 
+<!--
+<div id="popup2">
+  <img id="imgBanner"  style="object-fit: fill" src="https://drive.google.com/uc?id=1wgtC5n08W0hbV5ZgsTgCv0Bsw5fVkVOa&export=download">
+</div>
+-->
+
+   <span id="ifrbustspan" style="display:none; position:relative;left:1100px; top:5px; font-size: 18px"> 
+    <a id="ifrbust"  target="_new">Bookmarkable Link
+   </a>&nbsp;|&nbsp;
+    
+   </span>
+  <a id="reloadPrintFriendly" target="_new" style="display:inline; position:relative;left:1100px; top:5px;font-size: 18px" > Print Friendly </a>
+  
+   
+    <div id="rep_loadingoutput"></div>
+    
+    <div id="outputdiv" style="justify-content: left"   >
+        <div id="heading"><!-- style="width: 80%; margin: auto; position: relative" -->
+          <div id="headingSummary">
+          </div>
+          <div id="heading_detail1" > 
+          </div>
+           <div id="heading_detail2" > 
+          </div>
+
+        </div>
+        <!--
+        <button id="enterEditMode" style="display:none" data-toggle="tooltip" data-placement="right" title="Tooltip on right" >Edit Display</button>
+      -->
+         <i id="enterEditMode" style="display:none;color:#230cf0;position:relative; left:20px" class="fa-solid fa-pen-to-square"  title="Hide Columns"></i>
+         
+         <i id="resetCols"  class="fa-solid fa-trash-arrow-up" style="display:none;position:relative; left:20px;color:#230cf0" title="Restore Columns"></i>
+          
+          <i id="exitEditMode" class="fa-solid fa-circle-check"   style="display:none;position:relative; left:20px;color: #087b08"" title="Exit Edit Mode"></i>
+       
+          <div id="maintable"></div>  
+      
+        <p></p>
+    </div>
+
+</body>
+
+</html>

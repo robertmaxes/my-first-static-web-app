@@ -1,0 +1,183 @@
+<!--please wait -->  
+ <div class="modal" id="pleaseWaitModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Just making that happen...</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+           <div style="display: block" id="loginspinner2" style="position:relative;left:-100px">
+            <div class="spinner-border text-success" role="status">
+                <span class="sr-only">Syncing Data </span>
+            </div>
+            <div style="position: relative; left:50px; top:-30px"> Syncing Data </div> 
+        </div>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--reset modal -->  
+<div class="modal" id="confirmResetModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirm </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Do you want to reset any curriculum information that has been mapped for this program?  (This will reset online reports for this program) </p>
+        <p> Course Titles and Description will be preserved. 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-lg" id="resetNo">No</button>
+        <button type="button" class="btn btn-primary btn-lg" id="resetYes">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--delete modal -->  
+<div class="modal" id="confirmDeleteModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirm </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Do you want to delete this program ?  (This will also remove any mapping and online reports for this program) </p>
+        <p> Course Titles and Description will also be deleted. 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-lg" id="deleteNo">No</button>
+        <button type="button" class="btn btn-primary btn-lg" id="deleteYes">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--loginModal --> 
+ <div class="modal" id="loginModal" tabindex="-1" role="dialog"  style="top:22px; left:50px">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #E0A900;">
+        <h5 class="modal-title">Login </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <table border=0 width="500px"><tr><td>
+         Name:
+     </td><td style="padding: 0 0 0 20px;">
+        <input type="text" id="ufrm" placeholder="username" style="line-height: 2em" required>  
+    </td>
+        </tr>
+        <tr>
+        <td>Password: </td>
+       <td style="padding: 0 0 0 20px;"><input type="password" placeholder="******" id="pfrm" style="line-height: 2em" required></td>
+    </tr>
+</table>
+      </div>
+      <div class="modal-footer">
+        <div style="display: none" id="loginspinner" style="position:relative;left:-100px">
+            <div class="spinner-border text-success" role="status">
+                <span class="sr-only">Checking login details</span>
+            </div>
+
+        </div>
+        <button type="button" class="btn btn-secondary btn" id="LoginCancel">Cancel</button>
+        <button type="submit" class="btn btn-success btn" id="LoginGo">Log in</button>
+      </div>
+  
+    </div>
+  </div>
+</div>
+
+<!-- register Modal --> 
+ <div class="modal" id="registerModal" tabindex="-1" role="dialog"  style="top:22px; left:50px">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #E0A900;">
+        <h5 class="modal-title">Welcome </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+       <form method="post" id="interestForm">
+      <div class="modal-body">
+       <table border=0>
+        <tr > <td width=100% colspan=3 id="registerModalTxt" style="font-size:24"> Thankyou for your interest in Flexmap.<p> Please fill in the details below and we will get right back to you. </p>
+          <hr>
+        </td>
+          </tr> 
+        <tr>
+        <td>
+         Name:
+     </td>
+     <td style="padding: 0 0 0 20px;">
+        <input type="text" id="namefrm" placeholder="Firstname Surname" style="line-height: 2em" required>
+    </td>
+    </tr>
+        <tr>
+        <td> School or Other Institution </td>
+       <td style="padding: 0 0 0 20px;"> 
+            <input type="text" size=50 id="schoolfrm" placeholder="School or Institution" style="line-height: 2em" required>
+       </td>
+   </tr>
+   <tr>
+        <td>Email</td>
+       <td style="padding: 0 0 0 20px;"> 
+            <input type="email"  size=50 id="emailfrm" placeholder="email@somewhere.com" style="line-height: 2em" required>
+       </td>
+    </tr>
+    <tr>
+        <td>Role (Teacher, Faculty Head, Educational Administrattion etc)</td>
+       <td style="padding: 0 0 0 20px;"> 
+            <input type="text" size=50 id="rolefrm" placeholder="I am .. " style="line-height: 2em" required>
+       </td>
+    </tr>
+</table>
+      </div>
+      <div class="modal-footer">
+         <button type="button" class="btn btn-secondary btn" id="RegistrationCancel">Cancel</button>
+        <input type="submit" class="btn btn-success btn" id="RegistrationGo" value="Submit">
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- login fail --> 
+<div class="modal" id="invalidLogin" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Invalid Login Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>The user name and password combination is not valid</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+

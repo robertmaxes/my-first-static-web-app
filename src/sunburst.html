@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script>
+(function() { // Scoping function to avoid globals
+    var standalone=!document.getElementById("mainBody")
+    if(standalone){
+    var src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js";
+    document.write('<script src="' + src + '"><\/script>');
+  }
+  else {
+   // console.log("!jq load")
+  }
+})();
+</script>
+    <!--
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+    !-->
+    <!--<script src="https://d3js.org/d3.v5.min.js"></script>-->
+    <style>
+         body {
+            font-family: Sans-serif;
+            font-size: 14px;
+        }
+        svg {
+        z-index: -1;
+    }
+
+        .slice {
+            cursor: pointer;
+        }
+
+        .slice .main-arc {
+            stroke: #fff;
+            stroke-width: 1px;
+        }
+
+        .slice .hidden-arc {
+            fill: none;
+            stroke: none;
+        }
+
+        .slice text {
+            pointer-events: none;
+            dominant-baseline: middle;
+            text-anchor: middle;
+        }
+
+          #heading { font-size: 24px ; position: absolute; left:200px;}
+
+        path {
+            stroke: #fff;
+        }
+
+        .crumbs {
+            width: 100%;
+            
+            font: 16px Montserrat, sans-serif;
+            /* align-self: flex-start; ->(*/
+            top:2px;
+            position:relative;  
+             margin-top: 4px;
+             margin-bottom: 4px;
+           
+           
+        }
+        .crumbs2 {
+            position: relative;
+            left:20px;
+            width: 100%;
+            margin-bottom: 2px;
+            font: 16px Montserrat, sans-serif;
+        }
+
+        .crumbs .crumb {
+            position: relative;
+            /*display: inline-block;*/
+            padding: 1em 0.7em 1em 0.7em
+           
+        }
+        .crumbs .crumb a {
+            font-size: 16px;
+            color:black;
+        }
+
+        .crumbs2 .crumb a {
+            font-size: 14px;
+            color:grey;
+            /*padding-left: 1em;
+            padding-right: 1em; */
+                       
+             
+             text-decoration: none;
+             margin-bottom: 5px
+
+        }
+        .crumbs2 .crumb a:hover{
+            font-style: italic;  
+         }
+
+        .crumbs .crumb:not(:last-of-type):before {
+            content: '';
+            display: block;
+            position: absolute;
+            border-top: 5px solid transparent;
+            border-left: 10px solid #658ed0;
+            border-bottom: 5px solid transparent;
+            top: 21px;
+            right: -5px;
+        }
+
+        /* container for   
+            orginal long multivalue slider  (#mslider)
+            and new rounded slider 
+         */ 
+        .slidecontainer {
+            position:relative;
+            left:2vw;
+            top:-25vh;
+        }
+
+        
+
+/** toggle switch  - roudned slider **/
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 26px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.sliderSwitch {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #00008b;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.sliderSwitch:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .sliderSwitch {
+  background-color: #2196F3;
+}
+
+input:focus + .sliderSwitch {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .sliderSwitch:before {
+  -webkit-transform: translateX(18px);
+  -ms-transform: translateX(18px);
+  transform: translateX(18px);
+}
+
+/* Rounded sliders */
+.sliderSwitch.round {
+  border-radius: 26px;
+}
+
+.sliderSwitch.round:before {
+  border-radius: 50%;
+}
+
+/*
+fade in 
+*/
+
+@keyframes fadeIn {
+  from {opacity: 0}
+  to {opacity: 1}
+}
+
+.fadeInAnimated {
+  opacity: 0;
+  animation: fadeIn 0.5s forwards; /* forwards (animation-fill-mode) retains the style from the last keyframe when the animation ends */
+}
+
+ #heading { font-size: 18px ; position: relative; left:15px; text-decoration: bold;max-width: 800px}
+    #headingSummary { font-size: 18px ; text-align: left;resize:vertical;max-width: 800px }
+     #heading_detail1 { font-size: 14px ; text-align: left;resize: vertical;
+  overflow: auto; border-style: none; max-width: 800px}
+  #heading_detail2  { font-size: 14px ; text-align: left;resize: vertical;
+  overflow: auto; border-style: none; max-width: 800px}
+
+  
+
+    </style>
+</head>
+
+<body> 
+   
+     <div id="heading" style="position:relative"></div>
+
+
+
+      <div class="crumbs"></div>
+         <span class="crumbs2">
+            <span id="sb_outputloading"></span>
+    </span>
+       <svg style="position:relative;top:30px">
+    
+    </svg>
+    
+<div class="slidecontainer">
+<div class="btn-group">
+  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Show Levels
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#" id="twolevel">Two</a>
+    <a class="dropdown-item" href="#" id="threelevel">Three</a>
+    <a class="dropdown-item" href="#" id="alllevel">All</a>
+  </div>
+</div>
+
+
+ <input type="range" id="mslider" min="1" max="6" value="1" class="slider" hidden>
+  <!-- Rounded switch -->
+<label class="switch" hidden >
+  <input type="checkbox" id="rswitch">
+  <span class="sliderSwitch round"></span>
+</label>
+
+<div id="OneTwoLevelText" style="position: relative; top:8px; " hidden>One Level</div>
+
+</div>
+<div id="stdDisplay" style="width: 250px; position: absolute; left:60vw; top:20vh; font-size:16px" ></div>
+        <!-- Crumbs dynamically appended -->
+         <a id="ifrbust" style="display:none; position:absolute;left:90vw; top:150px; font-size:16px" target="_new1">Bookmarkable Link</a>
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+            </script>
+</body>
+
+<!-- 
+<script>
+  /*
+$(document).ready(function() {
+                  $.getScript("./sunburst.js")
+                
+                })
+                  </script>
+ -->
+ 
+ 
+    <script src="./sunburst.js">
+  //var a1code = getParameterByName('a1code'); // "lorem"
+       
+    </script>
+-->
+
+</html>
