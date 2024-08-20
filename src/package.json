@@ -1,0 +1,51 @@
+{
+  "name": "flexmap",
+  "version": "1.0.0",
+  "description": "flexmap curiculum mapping frontend",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "wds": "webpack-dev-server --no-inline",
+    "py": "python -m SimpleHTTPServer ",
+    "start": "webpack serve --mode=production --open",
+    "watch": "webpack --watch",
+    "ugly": "uglifyjs table.js --mangle --output distw/table.js;",
+    "cp": "cp * distw/; cp -r images distw",
+    "pub": "npm run ugly; npm run cp",
+    "gloc": "replace-in-files --replacement='https://script.google.com/macros/s/AKfycbx8jziXlcOJqZr6N7drNbDVdNawMdnepr22jzlx8uY/dev' --string='https://script.google.com/macros/s/AKfycbxzZINUhbQmkqp45AzfFHeYn00qpflHQIgpKgqprJhqzot4RAGTRc8HkMt_3yUElhOz/exec' ./*.js",
+    "gscript": "for f in *.js; do sed -i'' -e \"s|https://script.google.com/macros/s/AKfycbwEjzFeJD0k2JzW0gN_20XnkHobYiFrbUBsHALKcllO2Sml3LuAdx0tK9GH1MWhh64S/exec|https://script.google.com/macros/s/AKfycbx8jziXlcOJqZr6N7drNbDVdNawMdnepr22jzlx8uY/dev|g\" \"$f\"; done",
+    "g2": "for f in *.js2; do echo  $f; done",
+    "b2": "npm run pub; npm run build;",
+    "b3": "npm run b2; npm run start;"
+ 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://RobertCostello@bitbucket.org/RobertCostello/cmap.git"
+  },
+  "author": "robert john costello",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/RobertCostello/cmap#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^5.5.0",
+    "uglify-js": "^3.14.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^3.11.3"
+  },
+  "dependencies": {
+    "d3": "^5.15.0",
+    "print-message": "^3.0.1"
+  },
+  "comments": {
+    "global dependencies": {
+      "@google/clasp": "npm install -g @google/clasp",
+      "replace-in-files-cli": "npm install --global replace-in-files-cli"
+    },
+    "bak": {
+      "1": "uglifyjs 1.js --mangle --output distw/1.js",
+      "sunb": "uglifyjs sunburst.js --mangle --output distw/sunburst.js",
+      "index": "uglifyjs index.js --mangle --output distw/index.js;",
+      "pup": "uglifyjs pup.js --mangle --output distw/pup.js "
+    }
+  }
+}
